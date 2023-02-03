@@ -36,21 +36,19 @@ const kittenTwo = `<li class="card">
           </p>
         </li>`;
 
+const kittenImageThree = 'https://dev.adalab.es/maine-coon-cat.webp';
+const kittenNameThree = 'Cielo';
+const kittenDescThree =
+  'Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.';
+const kittenRaceThree = 'Maine Coon';
+
 const kittenThree =`<li class="card">
-        <img class="card_img" src="https://dev.adalab.es/maine-coon-cat.webp" alt="maine-coon-cat" />
-        <h3 class="card_title">Cielo</h3>
-        <h4 class="card_race">Maine Coon</h4>
-        <p class="card_description">
-        Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
-        bella mirada se ha convertido en una de sus señas de identidad.
-        Sus ojos son grandes y las orejas resultan largas y en punta.
-        </p>
+        <img class="card_img" src="${kittenImageThree}" alt="maine-coon-cat" />
+        <h3 class="card_title">${kittenNameThree}</h3>
+        <h4 class="card_race">${kittenRaceThree}</h4>
+        <p class="card_description">${kittenDescThree}</p>
     </li>`;
 
+list.innerHTML = `${kittenOne} ${kittenTwo} ${kittenThree}`;
 
-    list.innerHTML = `${kittenOne} ${kittenTwo} ${kittenThree}`;
-
-
-    
-
-
+// const nameUpper = kittenNameThree.toUpperCase();
