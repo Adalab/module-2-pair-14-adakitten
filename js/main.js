@@ -53,22 +53,21 @@ const kittenThree =`<li class="card">
 list.innerHTML = `${kittenOne} ${kittenTwo} ${kittenThree}`;
 
 
-//  FILTRAR: Búsqueda por descripción
+//  FILTRAR: Búsqueda por descripción (Includes: busca el valor que le pasemos para saber si el arreglo o cadena contiene ese valor.)
 
 const input_search_desc = document.querySelector('.js_in_search_desc');
-
 const descrSearchText = input_search_desc.value;
 
-if(kittenDescOne.includes(descrSearchText)) {
-  list.innerHTML = kittenOne;
+if( kittenDescOne.includes(descrSearchText) ) {
+  list.innerHTML = `${kittenOne}`;
 }
 
 if(kittenDescTwo.includes(descrSearchText) ) {
-  list.innerHTML = kittenTwo;
+  list.innerHTML = `${kittenTwo}`;
 }
 
 if(kittenDescThree.includes(descrSearchText) ) {
-  list.innerHTML = kittenThree;
+  list.innerHTML = `${kittenThree}`;
 }
 
 
