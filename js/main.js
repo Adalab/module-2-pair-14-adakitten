@@ -1,133 +1,124 @@
-"use strict";
-// MOSTRAR FORMULARIO:
-// const addForm = document.querySelector ('.js-new-form');
-// addForm.classList.remove ('collapsed');
+'use strict';
 
-// Listado: Mostrar gatitos desde JS + Mejora como se guarda la información + string upperCase
+//const formHidden = document.querySelector('.js-new-form');
+//formHidden.classList.remove("collapsed");
 
-const list = document.querySelector(".js-list");
 
-const kittenImageOne = "https://dev.adalab.es/gato-siames.webp";
-const kittenNameOne = "Anastacio";
-const kittenDescOne =
-  "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.";
-const kittenRaceOne = "Siamés";
+const formList = document.querySelector('.js-list');
 
-const kittenOne = `<li class="card">
-<article>
-    <img class="card_img" src= "${kittenImageOne}"/>
-    <h3 class="card_title"> ${kittenNameOne.toUpperCase()}</h3>
-    <h4 class="card_race"> ${kittenRaceOne}</h3>
-    <p class="card_description">${kittenDescOne}</p>;
-</article>
-</li>`;
+const kittenOneImg = 'https://dev.adalab.es/gato-siames.webp';
+const kittenOneName = 'Anastacio';
+const kittenOneDesc = 'Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.';
+const kittenOneRace = 'Siamés';
 
-const kittenImageTwo = "https://dev.adalab.es/sphynx-gato.webp";
-const kittenNameTwo = "Fiona";
-const kittenDescTwo =
-  "Produce fascinación y curiosidad. Exótico, raro, bello, extraño…hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.";
-const kittenRaceTwo = "Sphynx";
+// const kittenOne = `<li class="card"><article class="js-cat1"><img class="card_img"src="${kittenOneImg}" alt="siames-cat"/><h3 class="card_title">${kittenOneName.toUpperCase()}</h3><h4 class="card_race">${kittenOneRace}</h4><p class="card_description">${kittenOneDesc}</p></article></li>`;
 
-const kittenTwo = `<li class="card">
-          <img class="card_img" src="${kittenImageTwo}" alt="sphynx-cat" />
-          <h3 class="card_title">${kittenNameTwo.toUpperCase()}</h3>
-          <h4 class="card_race">${kittenRaceTwo}</h4>
-          <p class="card_description">
-            ${kittenDescTwo}
-          </p>
-        </li>`;
+const kittenTwoImg = "https://dev.adalab.es/sphynx-gato.webp";
+const kittenTwoName = "Fiona";
+const kittenTwoRace = "Sphynx";
+const kittenTwoDesc = "Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza  gatuna que se caracteriza por la «ausencia» de pelo.";
 
-const kittenImageThree = "https://dev.adalab.es/maine-coon-cat.webp";
-const kittenNameThree = "Cielo";
-const kittenDescThree =
-  "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.";
-const kittenRaceThree = "Maine Coon";
+// const kittenTwo = `<li class="card js-cat2"><article><img    class="card_img"src="${kittenTwoImg}" alt="siames-cat"/><h3 class="card_title">${kittenTwoName.toUpperCase()}</h3><h4 class="card_race">${kittenTwoRace}</h4><p class="card_description">${kittenTwoDesc}</p></article></li>`;
 
-const kittenThree = `<li class="card">
-        <img class="card_img" src="${kittenImageThree}" alt="maine-coon-cat" />
-        <h3 class="card_title">${kittenNameThree.toUpperCase()}</h3>
-        <h4 class="card_race">${kittenRaceThree}</h4>
-        <p class="card_description">${kittenDescThree}</p>
-    </li>`;
+const kittenThreeImg = "https://dev.adalab.es/maine-coon-cat.webp";
+const kittenThreeName = "Cielo";
+const kittenThreeRace = "Maine Coon";
+const kittenThreeDesc = "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.";
 
-list.innerHTML = `${kittenOne} ${kittenTwo} ${kittenThree}`;
+// const kittenThree = `<li class="card js-cat3"><article "><img class="card_img"src="${kittenThreeImg}" alt="siames-cat"/><h3 class="card_title">${kittenThreeName.toUpperCase()}</h3><h4 class="card_race">${kittenThreeRace}</h4><p class="card_description">${kittenThreeDesc}</p></article></li>`;
 
-//  FILTRAR: Búsqueda por descripción (Includes: busca el valor que le pasemos para saber si el arreglo o cadena contiene ese valor.)
+// formList.innerHTML = kittenOne + kittenTwo + kittenThree;
 
-const input_search_desc = document.querySelector(".js_in_search_desc");
+function renderKitten(url, name, race, desc) {
+  const kittenImg = url;
+  const kittenRace = race;
+  const kittenName = name;
+  const kittenDesc = desc;
+
+  formList.innerHTML += `<li class="card"><article class="js-article-3"><img    class="card_img"src="${kittenImg}" alt="siames-cat"/><h3 class="card_title">${kittenName.toUpperCase()}</h3><h4 class="card_race">${kittenRace}</h4><p class="card_description">${kittenDesc}</p></article></li>`;
+};
+
+renderKitten(kittenOneImg, kittenOneName, kittenOneRace, kittenOneDesc);
+renderKitten(kittenTwoImg, kittenTwoName, kittenTwoRace, kittenTwoDesc);
+renderKitten(kittenThreeImg, kittenThreeName, kittenThreeRace, kittenThreeDesc);
+
+
+const input_search_desc = document.querySelector('.js_in_search_desc');
 const descrSearchText = input_search_desc.value;
+const cat1 = document.querySelector('.js-cat1');
+const cat2 = document.querySelector('.js-cat2');
+const cat3 = document.querySelector('.js-cat3');
 
-if (kittenDescOne.includes(descrSearchText)) {
-  list.innerHTML = `${kittenOne}`;
-}
 
-if (kittenDescTwo.includes(descrSearchText)) {
-  list.innerHTML += `${kittenTwo}`;
-}
+// if (kittenOneDesc.includes(descrSearchText)) {
+//   cat2.classList.add('collapsed');
+//   cat3.classList.add('collapsed');
+// }
+// if (kittenTwoDesc.includes(descrSearchText)) {
+//   cat1.classList.add('collapsed');
+//   cat3.classList.add('collapsed');
+// }
+// if (kittenThreeDesc.includes(descrSearchText)) {
+//   cat1.classList.add('collapsed');
+//   cat2.classList.add('collapsed');
+// }
 
-if (kittenDescThree.includes(descrSearchText)) {
-  list.innerHTML += `${kittenThree}`;
-}
 
-//Eventos + declaración funciones
-const icon = document.querySelector(".js-icon");
-const addForm = document.querySelector(".js-new-form");
+const buttonPlus = document.querySelector('.item');
+const form = document.querySelector('.js-new-form')
 
-icon.addEventListener("click", (event) => {
+buttonPlus.addEventListener('click', (event) => {
   event.preventDefault();
-  if (addForm.classList.contains("collapsed")) {
-    showNewCatForm();
-  } else {
-    hideNewCatForm();
-  }
-});
+  form.classList.toggle('collapsed')
+})
 
-function showNewCatForm() {
-  addForm.classList.remove("collapsed");
-}
-function hideNewCatForm() {
-  addForm.classList.add("collapsed");
-}
+const buttonAdd = document.querySelector('.js-btn-add');
 
-//Añadir nuevo gatito formulario
+const inputDesc = document.querySelector('.js-input-desc');
+const inputPhoto = document.querySelector('.js-input-photo');
+const inputName = document.querySelector('.js-input-name');
+const labelMessageError = document.querySelector('.js-label-error');
 
-const addNewCat = document.querySelector(".js-btn-add");
-const inputDesc = document.querySelector(".js-input-desc");
-const inputPhoto = document.querySelector(".js-input-photo");
-const inputName = document.querySelector(".js-input-name");
-const labelMessageError = document.querySelector(".js-label-error");
+buttonAdd.addEventListener('click', addNewKitten);
 
-addNewCat.addEventListener("click", (event) => {
+function addNewKitten(event) {
+  event.preventDefault();
   const valueDesc = inputDesc.value;
   const valuePhoto = inputPhoto.value;
   const valueName = inputName.value;
 
-  if (valueDesc === "" || valuePhoto === "" || valueName === "") {
-    labelMessageError.innerHTML = '¡Uy! parece que has olvidado algo"';
+  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+    labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
   } else {
-    list.innerHTML += `<li>${valueDesc}${valuePhoto}${valueName}</li>`;
+    labelMessageError.innerHTML = "Todo ok";
   }
-});
-
-// const cancel = document.querySelector("-js-cancel");
-// cancel.addEventListener("click", () => {
-//   inputName.value = "";
-//   inputPhoto.value = "";
-//   inputDesc.value = "";
-//   form.classList.add("collapsed");
-// });
-
-//Funciones
-addForm.addEventListener("click", handleClickNewCatForm);
-{
-  handleClickNewCatForm();
 }
 
-function handleClickNewCatForm(event) {
+// buttonAdd.addEventListener('click', (event) => {
+//   event.preventDefault();
+//   const valueDesc = inputDesc.value;
+//   const valuePhoto = inputPhoto.value;
+//   const valueName = inputName.value;
+//   const valueRace = inputRace.value;
+
+//   if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+//     labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"
+//   } else {
+//     labelMessageError.innerHTML = "Bien!"
+//   }
+// })
+
+const buttonCancel = document.querySelector('.js-btn-cancel');
+
+buttonCancel.addEventListener('click', (event) => {
   event.preventDefault();
-  if (addForm.classList.contains("collapsed")) {
-    showNewCatForm();
-  } else {
-    hideNewCatForm();
-  }
-}
+  inputPhoto.value = '';
+  inputName.value = '';
+  inputRace.value = '';
+  inputDesc.value = '';
+  form.classList.add('collapsed');
+})
+
+
+
+
