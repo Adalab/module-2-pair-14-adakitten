@@ -101,3 +101,11 @@ addNewCat.addEventListener("click", (event) => {
     list.innerHTML = `<li>${valueDesc}${valuePhoto}${valueName}</li>`;
   }
 });
+
+const cancel = document.querySelector("-js-cancel");
+cancel.addEventListener("click", () => {
+  inputName.value = "";
+  inputPhoto.value = "";
+  inputDesc.value = "";
+  form.classList.add("collapsed");
+});
