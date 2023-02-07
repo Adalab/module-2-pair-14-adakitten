@@ -69,18 +69,25 @@ if (kittenDescThree.includes(descrSearchText)) {
   list.innerHTML += `${kittenThree}`;
 }
 
-//Eventos
+//Eventos + declaración funciones
 const icon = document.querySelector(".js-icon");
 const addForm = document.querySelector(".js-new-form");
 
 icon.addEventListener("click", (event) => {
   event.preventDefault();
   if (addForm.classList.contains("collapsed")) {
-    addForm.classList.remove("collapsed");
+    showNewCatForm();
   } else {
-    addForm.classList.add("collapsed");
+    hideNewCatForm();
   }
 });
+
+function showNewCatForm() {
+  addForm.classList.remove("collapsed");
+}
+function hideNewCatForm() {
+  addForm.classList.add("collapsed");
+}
 
 //Añadir nuevo gatito formulario
 
@@ -98,14 +105,29 @@ addNewCat.addEventListener("click", (event) => {
   if (valueDesc === "" || valuePhoto === "" || valueName === "") {
     labelMessageError.innerHTML = '¡Uy! parece que has olvidado algo"';
   } else {
-    list.innerHTML = `<li>${valueDesc}${valuePhoto}${valueName}</li>`;
+    list.innerHTML += `<li>${valueDesc}${valuePhoto}${valueName}</li>`;
   }
 });
 
-const cancel = document.querySelector("-js-cancel");
-cancel.addEventListener("click", () => {
-  inputName.value = "";
-  inputPhoto.value = "";
-  inputDesc.value = "";
-  form.classList.add("collapsed");
-});
+// const cancel = document.querySelector("-js-cancel");
+// cancel.addEventListener("click", () => {
+//   inputName.value = "";
+//   inputPhoto.value = "";
+//   inputDesc.value = "";
+//   form.classList.add("collapsed");
+// });
+
+//Funciones
+addForm.addEventListener("click", handleClickNewCatForm);
+{
+  handleClickNewCatForm();
+}
+
+function handleClickNewCatForm(event) {
+  event.preventDefault();
+  if (addForm.classList.contains("collapsed")) {
+    showNewCatForm();
+  } else {
+    hideNewCatForm();
+  }
+}
